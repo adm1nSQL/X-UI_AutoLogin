@@ -1,0 +1,39 @@
+{
+	"manifest_version": 2,
+	"name": "x-ui_autologin",
+	"version": "1.0.0",
+	"description": "简单的Chrome扩展demo,x-ui自动登录",
+	"icons":
+	{
+        "16": "img/jsonvue16.png",
+        "48": "img/jsonvue48.png",
+        "128": "img/jsonvue128.png"
+	},
+    "background": {
+        "scripts": [
+          "background.js"
+        ],
+        "persistent": true
+      },
+	"browser_action": 
+	{
+		"default_icon": "img/jsonvue128.png",
+		"default_title": "这是一个示例Chrome插件",
+		"default_popup": "pop.html"
+	},
+    "content_scripts": 
+    [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "web_accessible_resources": ["inject.js"],
+    "permissions":
+	[
+		"contextMenus",
+        "http://*/*", 
+		"https://*/*"
+    ]
+}
